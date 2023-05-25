@@ -1,0 +1,101 @@
+{
+  "name": "cpm-cleaner",
+  "publisher": "stericst",
+  "displayName": "cpm_cleaner",
+  "description": "cleans cpm cache",
+  "version": "1.0.5",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "homepage": "https://github.com/stericst/vscode-cpm-cache-cleaner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stericst/vscode-cpm-cache-cleaner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stericst/vscode-cpm-cache-cleaner/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/stericst"
+  },
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "cpm",
+    "cpm cache cleaner",
+    "cmake"
+  ],
+  "qna": false,
+  "activationEvents": [
+    "workspaceContains:CMakeLists.txt",
+    "workspaceContains:**/CMakeLists.txt"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "CPM cache cleaner",
+      "properties": {
+        "cpmcleaner.cpmCachepath": {
+          "type": "string",
+          "default": "C:/temp/cpm-cache",
+          "description": "Folder of CPM cache, defaults to C:/temp/cpm-cache"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "cpmcleaner.nuke",
+        "title": "nuke cache",
+        "icon": "$(trash)",
+        "category": "CPM_cleaner"
+      },
+      {
+        "command": "cpmcleaner.nukeAndClean",
+        "title": "nuke cache and reconfigure CMake",
+         "icon": "$(trash)",
+        "category": "CPM_cleaner"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js",
+    "vscode:prepublish": "npm run -S esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run -S esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run -S esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
+
+  },
+ "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.77.0",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.36.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+    "extensionDependencies": [
+    "ms-vscode.cmake-tools"
+  ],
+  "dependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.76.0",
+    "@vscode/test-electron": "^2.3.0",
+    "esbuild": "^0.17.14",
+    "eslint": "^8.36.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  }
+}
