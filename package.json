@@ -3,7 +3,7 @@
   "publisher": "stericst",
   "displayName": "cpm_cleaner",
   "description": "cleans cpm cache",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "SEE LICENSE IN LICENSE.txt",
   "homepage": "https://github.com/stericst/CPM_Cleaner",
   "repository": {
@@ -54,7 +54,7 @@
       {
         "command": "cpmcleaner.nukeAndClean",
         "title": "nuke cache and reconfigure CMake",
-         "icon": "$(trash)",
+        "icon": "$(trash)",
         "category": "CPM_cleaner"
       }
     ]
@@ -68,9 +68,8 @@
     "esbuild": "npm run -S esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run -S esbuild-base -- --sourcemap --watch",
     "test-compile": "tsc -p ./"
-
   },
- "devDependencies": {
+  "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
@@ -83,7 +82,7 @@
     "mocha": "^10.2.0",
     "typescript": "^4.9.5"
   },
-    "extensionDependencies": [
+  "extensionDependencies": [
     "ms-vscode.cmake-tools"
   ],
   "dependencies": {
